@@ -146,7 +146,6 @@ button {
   min-height: 100%;
   height: 100%;
   width: 100%;
-  margin-bottom: 8rem;
 }
 
 .relevance .first-section {
@@ -173,6 +172,22 @@ button {
   margin: 6.4rem 0;
 }
 
+.speakers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 85%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
 .speaker__div {
   z-index: 1;
   height: auto;
@@ -184,7 +199,7 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: absolute;
+  margin: 2rem 3rem;
 }
 
 .speaker__div .speaker__bg {
@@ -224,7 +239,7 @@ button {
 }
 
 .third-section {
-  margin: 8rem 10rem;
+  margin: 2rem 10rem;
   padding-top: 3rem;
 }
 
@@ -232,14 +247,16 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .card {
-  margin: 8rem 1.6rem;
-  min-width: 267px;
-  max-width: 267px;
+  margin: 3rem 1rem;
+  width: 267px;
   min-height: 350px;
   border: solid #e5e8e8 1px;
   border-radius: 8px;
@@ -253,7 +270,7 @@ button {
 }
 
 .card .card-img-top {
-  width: 267px;
+  max-width: 267px;
   height: auto;
   border-radius: 8px 8px 0 0;
 }
@@ -275,6 +292,6 @@ button {
 }
 
 .card:hover {
-  margin-top: 2rem;
+  margin-top: 0;
 }
 /*# sourceMappingURL=index.css.map */

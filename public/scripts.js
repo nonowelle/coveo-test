@@ -16,7 +16,25 @@ const events = fetch("/events").then(async (response) => {
   const date = document.querySelector(".first-section__date");
   const dateToFormat = data[4].date;
   dateToFormat;
-  date.textContent = data[4].date;
+  date.innerHTML = `<i class="far fa-calendar-alt"></i>${data[4].date}`;
+
+  const speakers = document.querySelector(".speakers");
+  const speakersInfo = data[4].speakers_id;
+  console.log(speakersInfo);
+
+  //Create a speaker div for each speaker of Relevance 360
+
+  for (let i = 0; i < speakersInfo.length; i++) {
+    let par = document.createElement("div");
+    par.classList.add("speaker__div");
+    par.innerHTML = `<div class="__info">
+                <img src="https://reqres.in/img/faces/1-image.jpg" alt="" class="__avatar" />
+                <p class="__name">${speakersInfo[i]}</p>
+                <p class="__title">Hola !</p>
+              </div>
+      `;
+    document.querySelector(".speakers").appendChild(par);
+  }
 
   //select the cards div
   const cards = document.querySelector(".cards");
@@ -39,7 +57,7 @@ const events = fetch("/events").then(async (response) => {
             </div>
          
 `;
-    document.querySelector(".cards").appendChild(card);
+    cards.appendChild(card);
   }
 });
 
