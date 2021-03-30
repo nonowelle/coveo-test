@@ -35,6 +35,26 @@ app.get("/speakers", async (req, res) => {
     });
 });
 
+app.get("/events", async (req, res) => {
+  let config = {
+    method: "get",
+    url: "https://isfrontendtest.coveo.com/rest/events",
+    headers: {
+      "x-apikey": api_key,
+    },
+  };
+
+  await axios(config)
+    .then(async function (response) {
+      const data = await response.data;
+      console.log(data);
+      res.json(data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+});
+
 //Make the app listen to a port
 app.listen(port, () => {
   console.log(`listening at ${port}`);

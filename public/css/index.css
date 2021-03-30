@@ -1,20 +1,23 @@
 * {
-  padding: 0;
-  margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "Lato", sans-serif;
 }
 
+:root {
+  font-size: 62.5%;
+}
+
 h1 {
-  font-size: 64px;
+  font-size: 6.4rem;
   font-weight: 300;
+  margin: 0;
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 3.2rem;
   font-weight: 300;
-  margin: 3rem 0;
+  margin: 2rem 0;
 }
 
 h3 {
@@ -24,24 +27,43 @@ h3 {
 }
 
 p {
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 2rem;
+  line-height: 3rem;
   font-weight: 400;
 }
 
 body {
+  padding: 0;
+  margin: 0;
   background: #f6f7f9;
-  width: 100vw;
+  width: 100%;
 }
 
 nav {
+  display: block;
+  width: 100%;
   height: 68px;
   background-color: #333357;
-  padding: 1rem 4rem;
+  padding: 1.6rem 10rem;
+  margin: 0;
+}
+
+footer {
+  display: block;
+  width: 100%;
+  height: 6.3rem;
+  background-color: white;
+  padding: 1.6rem;
+  margin: 0;
+  text-align: center;
+  color: #282829;
+  font-size: 1.4rem;
 }
 
 main {
-  margin: 3rem 4rem;
+  margin: 5rem 0rem;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 form {
@@ -52,13 +74,13 @@ form {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 7rem auto;
+  margin: 16rem auto;
   width: 344px;
   height: 417px;
   background: white;
   border: solid #e5e8e8 1px;
   border-radius: 8px;
-  padding: 1.5rem 2.5rem;
+  padding: 5rem 3.5rem;
   -webkit-box-shadow: 3px 3px 16px 0 #e5e8e8;
           box-shadow: 3px 3px 16px 0 #e5e8e8;
   -moz-box-shadow: 3px 3px 16px 0 #e5e8e8;
@@ -66,12 +88,12 @@ form {
 
 input {
   width: 100%;
-  margin: 1rem 0;
-  padding: 0.8rem;
+  margin: 1.6rem 0;
+  padding: 1.3rem;
   border-radius: 8px;
   border: 1px solid #f6f7f9;
   color: #282829;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
 }
 
@@ -105,7 +127,7 @@ input:focus:invalid {
 
 button {
   width: 100%;
-  margin: 1rem 0;
+  margin: 1.6rem 0;
   padding: 0.8rem;
   border-radius: 8px;
   border: none;
@@ -113,46 +135,47 @@ button {
   opacity: 20%;
   color: white;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 1.6rem;
+  line-height: 2rem;
 }
 
 .relevance {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 8rem;
 }
 
 .relevance .first-section {
   width: 60%;
-  height: 100%;
-  min-height: 75vh;
-  margin-right: 3rem;
+  margin: 0 0 6rem 10rem;
 }
 
 .first-section__event {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 700;
   color: #f05245;
 }
 
 .first-section__date {
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 .first-section__date .fa-calendar-alt {
-  margin-right: 0.5rem;
-  font-size: 14px;
+  margin-right: 0.9rem;
+  font-size: 1.4rem;
 }
 
 .first-section__par {
-  margin-top: 4rem;
+  margin: 6.4rem 0;
 }
 
 .speaker__div {
   z-index: 1;
-  width: 20%;
-  height: 150px;
+  height: auto;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -181,19 +204,43 @@ button {
   left: -108px;
 }
 
-.speaker__div .__title {
+.speaker__div .__info .__name {
+  margin: 0;
+}
+
+.speaker__div .__info .__title {
   color: #626971;
-  font-size: 14px;
+  font-size: 1.4rem;
+  margin: 0;
 }
 
 .second-section {
-  background: url("./images/Ellipse1.svg");
+  width: 40%;
+}
+
+.second-section::before {
+  background-image: url("./public/images/Ellipse3.png");
+  background-size: 100%;
+}
+
+.third-section {
+  margin: 8rem 10rem;
+  padding-top: 3rem;
+}
+
+.cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .card {
-  margin-top: 5rem;
-  width: 267px;
-  height: 350px;
+  margin: 8rem 1.6rem;
+  min-width: 267px;
+  max-width: 267px;
+  min-height: 350px;
   border: solid #e5e8e8 1px;
   border-radius: 8px;
   background-color: white;
@@ -201,27 +248,33 @@ button {
           box-shadow: 3px 3px 16px 0 #e5e8e8;
   -moz-box-shadow: 3px 3px 16px 0 #e5e8e8;
   cursor: pointer;
+  -webkit-transition: margin-top ease 0.5s;
+  transition: margin-top ease 0.5s;
 }
 
 .card .card-img-top {
-  width: 100%;
+  width: 267px;
   height: auto;
   border-radius: 8px 8px 0 0;
 }
 
 .card .card-body {
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 .card .card-body .card-title {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 300;
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
 }
 
 .card .card-body .card-text {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 2rem;
+}
+
+.card:hover {
+  margin-top: 2rem;
 }
 /*# sourceMappingURL=index.css.map */
