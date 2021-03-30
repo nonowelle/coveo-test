@@ -52,13 +52,16 @@ form {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 0 auto;
+  margin: 7rem auto;
   width: 344px;
   height: 417px;
   background: white;
   border: solid #e5e8e8 1px;
   border-radius: 8px;
   padding: 1.5rem 2.5rem;
+  -webkit-box-shadow: 3px 3px 16px 0 #e5e8e8;
+          box-shadow: 3px 3px 16px 0 #e5e8e8;
+  -moz-box-shadow: 3px 3px 16px 0 #e5e8e8;
 }
 
 input {
@@ -66,10 +69,38 @@ input {
   margin: 1rem 0;
   padding: 0.8rem;
   border-radius: 8px;
-  border: 1px solid #e5e8e8;
-  color: #626971;
+  border: 1px solid #f6f7f9;
+  color: #282829;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
+}
+
+input ::-webkit-input-placeholder {
+  color: #626971;
+  font-weight: 100;
+}
+
+input :-ms-input-placeholder {
+  color: #626971;
+  font-weight: 100;
+}
+
+input ::-ms-input-placeholder {
+  color: #626971;
+  font-weight: 100;
+}
+
+input ::placeholder {
+  color: #626971;
+  font-weight: 100;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:focus:invalid {
+  border: 1px solid #ff8177;
 }
 
 button {
@@ -94,6 +125,8 @@ button {
 
 .relevance .first-section {
   width: 60%;
+  height: 100%;
+  min-height: 75vh;
   margin-right: 3rem;
 }
 
@@ -116,20 +149,79 @@ button {
   margin-top: 4rem;
 }
 
-.speaker {
+.speaker__div {
+  z-index: 1;
+  width: 20%;
+  height: 150px;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
 }
 
-.speaker .__data {
+.speaker__div .speaker__bg {
+  width: 128px;
+  height: auto;
+  top: 0;
+  left: 9px;
+  z-index: -1;
+}
+
+.speaker__div .__avatar {
+  border-radius: 50%;
+}
+
+.speaker__div .__info {
+  bottom: 125px;
+  left: -108px;
+}
+
+.speaker__div .__title {
   color: #626971;
   font-size: 14px;
 }
 
-.first-section__avatar {
-  border-radius: 50%;
-}
-
 .second-section {
   background: url("./images/Ellipse1.svg");
+}
+
+.card {
+  margin-top: 5rem;
+  width: 267px;
+  height: 350px;
+  border: solid #e5e8e8 1px;
+  border-radius: 8px;
+  background-color: white;
+  -webkit-box-shadow: 3px 3px 16px 0 #e5e8e8;
+          box-shadow: 3px 3px 16px 0 #e5e8e8;
+  -moz-box-shadow: 3px 3px 16px 0 #e5e8e8;
+  cursor: pointer;
+}
+
+.card .card-img-top {
+  width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+}
+
+.card .card-body {
+  padding: 1.5rem;
+}
+
+.card .card-body .card-title {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.card .card-body .card-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
 }
 /*# sourceMappingURL=index.css.map */

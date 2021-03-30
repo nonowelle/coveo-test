@@ -6,11 +6,10 @@ const response = fetch("/speakers").then(async (response) => {
   console.log(obj);
 
   //Select the p we want to change
-  const div_data = document.querySelector(".__data");
+  const title = document.querySelector(".__title");
   const name = document.querySelector(".__name");
-  const avatar = document.querySelector(".first-section__avatar");
-  console.log(div_data);
+  const avatar = document.querySelector(".__avatar");
   avatar.src = obj[0].avatar;
-  div_data.textContent = obj[0].title;
+  title.textContent = obj[0].title;
   name.textContent = obj[0].last_name;
 });
