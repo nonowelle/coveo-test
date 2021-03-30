@@ -1,4 +1,137 @@
+//---------------VARIABLES-------------------------------//
+$background: #f6f7f9;
+$orange: #f05245;
+$primary-blue: #1372ec;
+$nav: #333357;
+$form-stroke: #e5e8e8;
+$form-green: #2ba488;
+$form-red: #ff8177;
+$grey: #626971;
+
+//---------------BASE------------------------------------//
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 300;
+  margin: 3rem 0;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 300;
+  margin: 1rem 0;
+}
+
+p {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+}
+
 body {
   background: #f6f7f9;
   width: 100vw;
+}
+
+nav {
+  height: 68px;
+  background-color: $nav;
+  padding: 1rem 4rem;
+}
+main {
+  margin: 3rem 4rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 344px;
+  height: 417px;
+  background: white;
+  border: solid $form-stroke 1px;
+  border-radius: 8px;
+  padding: 1.5rem 2.5rem;
+}
+
+input {
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid $form-stroke;
+  color: $grey;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+button {
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  background-color: $primary-blue;
+  opacity: 20%;
+  color: white;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+//---------------CLASSES------------------------------------//
+
+.relevance {
+  display: flex;
+
+  .first-section {
+    width: 60%;
+    margin-right: 3rem;
+  }
+}
+
+.first-section__event {
+  font-size: 16px;
+  font-weight: 700;
+  color: $orange;
+}
+
+.first-section__date {
+  font-size: 16px;
+
+  .fa-calendar-alt {
+    margin-right: 0.5rem;
+    font-size: 14px;
+  }
+}
+
+.first-section__par {
+  margin-top: 4rem;
+}
+
+.speaker {
+  text-align: center;
+
+  .__data {
+    color: $grey;
+    font-size: 14px;
+  }
+}
+
+.first-section__avatar {
+  border-radius: 50%;
+}
+
+.second-section {
+  background: url("./images/Ellipse1.svg");
 }

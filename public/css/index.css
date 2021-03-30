@@ -1,5 +1,135 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 300;
+  margin: 3rem 0;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 300;
+  margin: 1rem 0;
+}
+
+p {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+}
+
 body {
   background: #f6f7f9;
   width: 100vw;
+}
+
+nav {
+  height: 68px;
+  background-color: #333357;
+  padding: 1rem 4rem;
+}
+
+main {
+  margin: 3rem 4rem;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+  width: 344px;
+  height: 417px;
+  background: white;
+  border: solid #e5e8e8 1px;
+  border-radius: 8px;
+  padding: 1.5rem 2.5rem;
+}
+
+input {
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #e5e8e8;
+  color: #626971;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+button {
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #1372ec;
+  opacity: 20%;
+  color: white;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.relevance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.relevance .first-section {
+  width: 60%;
+  margin-right: 3rem;
+}
+
+.first-section__event {
+  font-size: 16px;
+  font-weight: 700;
+  color: #f05245;
+}
+
+.first-section__date {
+  font-size: 16px;
+}
+
+.first-section__date .fa-calendar-alt {
+  margin-right: 0.5rem;
+  font-size: 14px;
+}
+
+.first-section__par {
+  margin-top: 4rem;
+}
+
+.speaker {
+  text-align: center;
+}
+
+.speaker .__data {
+  color: #626971;
+  font-size: 14px;
+}
+
+.first-section__avatar {
+  border-radius: 50%;
+}
+
+.second-section {
+  background: url("./images/Ellipse1.svg");
 }
 /*# sourceMappingURL=index.css.map */

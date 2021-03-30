@@ -4,29 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Relevance 360</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
   </head>
   <body>
-    <nav></nav>
+    <nav>
+      <img src="./images/Logo.svg" alt="logo-coveo" />
+    </nav>
     <main>
-      <p>Event</p>
-      <h1>Relevance 360</h1>
-      <p>Monday, October 15th 2020</p>
-      <p>
-        Not all AI-powered search engines are created equal. Artificial
-        intelligence is powerful, but only when applied to relevant inputs and
-        directed toward a desired outcome. It requires more than just a model.
-        Without meaningful data, defined business objectives, and the ability to
-        integrate business logic, AI can’t operate effectively or deliver the
-        results you've set out to achieve.
-      </p>
-      <h2>Amazing Speakers</h2>
-      <div>
-        <img src="" alt="" class="avatar" />
-        <p class="name">Hola !</p>
-        <p class="data">Hola !</p>
+      <div class="relevance">
+        <div class="first-section">
+          <p class="first-section__event">EVENT</p>
+          <h1>Relevance 360</h1>
+
+          <p class="first-section__date">
+            <i class="far fa-calendar-alt"></i>Monday, October 15th 2020
+          </p>
+          <p class="first-section__par">
+            Not all AI-powered search engines are created equal. Artificial
+            intelligence is powerful, but only when applied to relevant inputs
+            and directed toward a desired outcome. It requires more than just a
+            model. Without meaningful data, defined business objectives, and the
+            ability to integrate business logic, AI can’t operate effectively or
+            deliver the results you've set out to achieve.
+          </p>
+          <h2>Amazing Speakers</h2>
+          <div class="speaker">
+            <img src="" alt="" class="first-section__avatar" />
+            <p class="__name">Hola !</p>
+            <p class="__data">Hola !</p>
+          </div>
+        </div>
+        <div class="second-section">
+          <form action="POST">
+            <h3>Register</h3>
+            <input type="text" placeholder="Last Name" />
+            <input type="text" placeholder="First Name" />
+            <input type="text" placeholder="Email" />
+            <button type="submit">Register</button>
+          </form>
+        </div>
       </div>
-      <h2>Events that you may be interested in:</h2>
+
+      <div class="third-section">
+        <h2>Events that you may be interested in:</h2>
+      </div>
     </main>
     <footer></footer>
   </body>
