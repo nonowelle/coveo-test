@@ -13,10 +13,13 @@ const events = fetch("/events").then(async (response) => {
   par.textContent = data[4].description;
 
   //Select the data of Relevance 360
+  // DATE
   const date = document.querySelector(".first-section__date");
   const dateToFormat = data[4].date;
-  dateToFormat;
-  date.innerHTML = `<i class="far fa-calendar-alt"></i>${data[4].date}`;
+  const dateFormated = dateToFormat.slice(0, 10);
+  const finalDate = dayjs(dateFormated).format("dddd, MMMM D YYYY");
+  console.log(finalDate);
+  date.innerHTML = `<i class="far fa-calendar-alt"></i>${finalDate}`;
 
   const speakers = document.querySelector(".speakers");
   const speakersInfo = data[4].speakers_id;

@@ -28,7 +28,7 @@
           <h1></h1>
 
           <p class="first-section__date">
-            <i class="far fa-calendar-alt"></i>Monday, October 15th 2020
+            <i class="far fa-calendar-alt"></i>
           </p>
           <p class="first-section__par"></p>
           <h2>Amazing Speakers</h2>
@@ -61,5 +61,10 @@
     </main>
     <footer>© 2020 Coveo Solutions Inc. All Rights Reserved.</footer>
   </body>
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+  <script src="https://unpkg.com/dayjs@1.8.21/plugin/utc.js"></script>
+  <script>
+    dayjs.extend(window.dayjs_plugin_utc);
+  </script>
   <script src="scripts.js"></script>
 </html>
