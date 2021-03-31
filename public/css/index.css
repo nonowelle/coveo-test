@@ -257,7 +257,7 @@ button {
 .card {
   margin: 3rem 1rem;
   width: 267px;
-  min-height: 350px;
+  max-height: 350px;
   border: solid #e5e8e8 1px;
   border-radius: 8px;
   background-color: white;
@@ -271,18 +271,19 @@ button {
 
 .card .card-img-top {
   max-width: 267px;
-  height: auto;
+  height: 178px;
   border-radius: 8px 8px 0 0;
 }
 
 .card .card-body {
-  padding: 2rem;
+  padding: 1rem 2rem;
+  max-height: 172px;
 }
 
 .card .card-body .card-title {
   font-size: 1.8rem;
   font-weight: 300;
-  margin-bottom: 1.6rem;
+  margin: 0 0 1.6rem 0;
 }
 
 .card .card-body .card-text {

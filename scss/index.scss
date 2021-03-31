@@ -234,7 +234,7 @@ button {
   margin: 3rem 1rem;
   width: 267px;
   //   max-width: 350px;
-  min-height: 350px;
+  max-height: 350px;
   border: solid $form-stroke 1px;
   border-radius: 8px;
   background-color: white;
@@ -244,17 +244,17 @@ button {
   transition: margin-top ease 0.5s;
 
   .card-img-top {
-    // min-width: 267px;
     max-width: 267px;
-    height: auto;
+    height: 178px;
     border-radius: 8px 8px 0 0;
   }
   .card-body {
-    padding: 2rem;
+    padding: 1rem 2rem;
+    max-height: 172px;
     .card-title {
       font-size: 1.8rem;
       font-weight: $light;
-      margin-bottom: 1.6rem;
+      margin: 0 0 1.6rem 0;
     }
 
     .card-text {

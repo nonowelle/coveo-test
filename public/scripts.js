@@ -43,7 +43,20 @@ const events = fetch("/events").then(async (response) => {
   const cards = document.querySelector(".cards");
 
   //Generate a card for each events
+
   for (let i = 0; i < data.length - 1; i++) {
+    //SHORTEN THE DESCRIPTION OF EACH EVENT
+    let desc = data[i].description;
+    const maxLength = 80;
+    //trim the description
+    let trimmedDesc = desc.substr(0, maxLength);
+    //re-trim if we are in the middle of a word
+    trimmedDesc = trimmedDesc.substr(
+      0,
+      Math.min(trimmedDesc.length, trimmedDesc.lastIndexOf(" "))
+    );
+
+    shortDesc = `${trimmedDesc}...`;
     let card = document.createElement("div");
     card.classList.add("card");
     card.innerHTML = `
@@ -53,9 +66,9 @@ const events = fetch("/events").then(async (response) => {
               alt="Card image cap"
             />
             <div class="card-body">
-              <h5 class="card-title"> ${data[i].name}</h5>
+              <p class="card-title"> ${data[i].name}</p>
               <p class="card-text">
-              ${data[i].description}
+              ${shortDesc}
               </p>
             </div>
          
