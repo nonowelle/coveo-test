@@ -26,29 +26,26 @@
         <div class="first-section">
           <p class="first-section__event">EVENT</p>
           <h1></h1>
-
           <p class="first-section__date">
             <i class="far fa-calendar-alt"></i>
           </p>
           <p class="first-section__par"></p>
           <h2>Amazing Speakers</h2>
-          <div class="speakers">
-            <div class="speaker__div">
-              <div class="__info">
-                <img src="" alt="" class="__avatar" />
-                <p class="__name">Hola !</p>
-                <p class="__title">Hola !</p>
-              </div>
-            </div>
-          </div>
+          <div class="speakers"></div>
         </div>
 
         <div class="second-section">
           <form action="POST">
             <h3>Register</h3>
-            <input type="text" placeholder="Last Name" />
-            <input type="text" placeholder="First Name" />
-            <input type="text" placeholder="Email" />
+            <input type="text" required placeholder="Last Name" id="name" />
+            <input
+              type="text"
+              required
+              placeholder="First Name"
+              id="firstname"
+            />
+            <input type="email" required placeholder="Email" id="mail" />
+            <span class=""></span>
             <button type="submit">Register</button>
           </form>
         </div>
@@ -61,6 +58,12 @@
     </main>
     <footer>© 2020 Coveo Solutions Inc. All Rights Reserved.</footer>
   </body>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/validator/13.5.2/validator.min.js"
+    integrity="sha512-vZEoK8xRncku4g5GANHh5zobUjeCMbZkSEahrADeAcRlk/1Ignf8sAKojkV4RZLkPw145+ILJFisI2pnjsPtGQ=="
+    crossorigin="anonymous"
+  ></script>
   <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   <script src="https://unpkg.com/dayjs@1.8.21/plugin/utc.js"></script>
   <script>

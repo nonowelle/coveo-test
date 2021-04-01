@@ -76,7 +76,8 @@ form {
           flex-direction: column;
   margin: 16rem auto;
   width: 344px;
-  height: 417px;
+  min-height: 417px;
+  max-height: 468px;
   background: white;
   border: solid #e5e8e8 1px;
   border-radius: 8px;
@@ -86,9 +87,21 @@ form {
   -moz-box-shadow: 3px 3px 16px 0 #e5e8e8;
 }
 
-input {
+form .error {
   width: 100%;
   margin: 1.6rem 0;
+  padding: 1.3rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #ff8177;
+  font-size: 1.4rem;
+  color: black;
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  margin: 1.2rem 0;
   padding: 1.3rem;
   border-radius: 8px;
   border: 1px solid #f6f7f9;
@@ -121,14 +134,14 @@ input:focus {
   outline: none;
 }
 
-input:focus:invalid {
+.invalid {
   border: 1px solid #ff8177;
 }
 
 button {
   width: 100%;
   margin: 1.6rem 0;
-  padding: 0.8rem;
+  padding: 1.3rem;
   border-radius: 8px;
   border: none;
   background-color: #1372ec;
@@ -200,6 +213,7 @@ button {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 2rem 3rem;
+  max-width: 128px;
 }
 
 .speaker__div .speaker__bg {
@@ -217,6 +231,7 @@ button {
 .speaker__div .__info {
   bottom: 125px;
   left: -108px;
+  font-weight: 400;
 }
 
 .speaker__div .__info .__name {
