@@ -248,6 +248,9 @@ button {
 .third-section {
   margin: 2rem 10rem;
   padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .cards {
@@ -259,7 +262,6 @@ button {
 .card {
   margin: 3rem 1rem;
   width: 267px;
-  //   max-width: 350px;
   max-height: 350px;
   border: solid $form-stroke 1px;
   border-radius: 8px;
@@ -297,22 +299,22 @@ button {
 
 //------MEDIA QUERIES -----------------------//
 
-@media screen and (max-width: 375px) {
-  body {
-    nav {
-      padding: 2rem 5.4rem;
-    }
-  }
+// @media screen and (max-width: 375px) {
+//   body {
+//     nav {
+//       padding: 2rem 5.4rem;
+//     }
+//   }
 
-  .first-section {
-    margin: 0;
-    width: 100%;
-  }
+//   .first-section {
+//     margin: 0;
+//     width: 100%;
+//   }
 
-  .third-section {
-    margin: 0 5.4rem;
-  }
-}
+//   .third-section {
+//     margin: 0 5.4rem;
+//   }
+// }
 
 @media screen and (max-width: 576px) {
   .first-section {
@@ -327,55 +329,28 @@ button {
   .speakers {
     margin: 0;
     align-items: center;
+    justify-content: center;
   }
 
-  form {
-    margin: 0 auto;
-    width: 80%;
+  .speaker__div {
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 2rem;
   }
 }
 
 @media screen and (max-width: 768px) {
-  :root {
-    font-size: 55%;
-  }
-
-  .first-section {
-    margin: 0;
-    width: 80%;
-  }
-
-  .second-section {
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .speakers {
-    justify-content: start;
-  }
-  .third-section {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .cards {
-    justify-content: start;
-  }
-
-  .card {
-    width: 250px;
-
-    .card-img-top {
-      max-width: 250px;
-    }
-  }
-
   form {
-    margin: 0;
+    margin: 2rem;
+    align-self: center;
+    width: 80%;
   }
 }
 @media screen and (max-width: 1200px) {
+  :root {
+    font-size: 60%;
+  }
+
   .relevance {
     flex-direction: column;
     margin: 0;
@@ -387,17 +362,17 @@ button {
 
   .second-section {
     margin: 0 auto;
-    width: 80%;
+    width: 70%;
+    form {
+      margin: 0;
+      width: 70%;
+      max-width: 450px;
+      justify-content: flex-start;
+    }
   }
 
   .third-section {
-    margin: 2rem 8.7rem;
-  }
-
-  form {
-    justify-self: center;
-    align-self: center;
-    margin: 0 auto;
-    width: 100%;
+    width: 70%;
+    margin: 2rem auto;
   }
 }
