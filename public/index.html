@@ -35,17 +35,33 @@
         </div>
 
         <div class="second-section">
-          <form action="POST">
+          <form action="/" method="POST" novalidate>
             <h3>Register</h3>
-            <input type="text" required placeholder="Last Name" id="name" />
+            <input
+              type="text"
+              name="name"
+              value=""
+              required
+              placeholder="Last Name"
+              id="name"
+            />
             <input
               type="text"
               required
+              value=""
+              name="firstName"
               placeholder="First Name"
               id="firstname"
             />
-            <input type="email" required placeholder="Email" id="mail" />
-            <span class=""></span>
+            <input
+              type="email"
+              required
+              placeholder="Email"
+              id="mail"
+              value=""
+              name="email"
+            />
+            <span id="error" class=""></span>
             <button type="submit">Register</button>
           </form>
         </div>

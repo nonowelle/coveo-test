@@ -134,24 +134,60 @@ const form = document.querySelector("form");
 const name = document.querySelector("#name");
 const firstName = document.querySelector("#firstname");
 const error = document.querySelector("span");
+const button = document.querySelector("button");
+const inputs = document.getElementsByTagName("input");
+console.log(inputs);
 
-email.addEventListener("input", function (event) {
-  validator.isEmail(email.value)
-    ? console.log("YES")
-    : email.classList.add("invalid");
+form.addEventListener("submit", (e) => {
+  console.log("Trying to submit");
+  validateForm(e);
 });
 
-name.addEventListener("input", function (event) {
-  validator.isAlpha(name.value)
-    ? console.log("YES")
-    : name.classList.add("invalid");
-});
+function validateForm(e) {
+  if (email.value && name.value && firstName.value) {
+    email.classList.remove("invalid");
+    name.classList.remove("invalid");
+    firstName.classList.remove("invalid");
+    button.classList.add("ready");
+    submitForm();
+  } else {
+    button.classList.remove("ready");
+    e.preventDefault();
+  }
 
-firstName.addEventListener("input", function (event) {
-  validator.isAlpha(firstName.value)
-    ? console.log("YES")
-    : firstName.classList.add("invalid");
-});
+  if (validator.isEmpty(name.value)) {
+    name.classList.add("invalid");
+    e.preventDefault();
+  }
+  if (validator.isEmpty(firstName.value)) {
+    firstName.classList.add("invalid");
+    e.preventDefault();
+  }
+
+  if (!validator.isEmail(email.value)) {
+    email.classList.add("invalid");
+    e.preventDefault();
+  }
+}
+
+const submitForm = async () => {
+  const userData = {
+    name: name.value,
+    firstName: firstName.value,
+    email: email.value,
+  };
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userData),
+  };
+
+  const response = await fetch("/", options);
+  const data = await JSON.stringify(response);
+  console.log(data);
+};
 
 //-----------------------------------------//
 display();

@@ -39,7 +39,7 @@ h2 {
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 2.4rem;
   font-weight: $light;
   margin: 1rem 0;
 }
@@ -116,6 +116,7 @@ input {
   padding: 1.3rem;
   border-radius: 8px;
   border: 1px solid $background;
+  background-color: white;
   color: $dark-grey;
   font-size: 1.6rem;
   font-weight: $regular;
@@ -123,13 +124,19 @@ input {
     color: $grey;
     font-weight: $thin;
   }
+  &:-webkit-autofill {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: $dark-grey;
+  }
 }
 
-input:focus {
+input:focus,
+:valid {
   outline: none;
 }
 
 .invalid {
+  background-color: white;
   border: 1px solid $form-red;
 }
 
@@ -145,6 +152,10 @@ button {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2rem;
+}
+
+.ready {
+  opacity: 100%;
 }
 //---------------CLASSES------------------------------------//
 
@@ -282,4 +293,111 @@ button {
 
 .card:hover {
   margin-top: 0;
+}
+
+//------MEDIA QUERIES -----------------------//
+
+@media screen and (max-width: 375px) {
+  body {
+    nav {
+      padding: 2rem 5.4rem;
+    }
+  }
+
+  .first-section {
+    margin: 0;
+    width: 100%;
+  }
+
+  .third-section {
+    margin: 0 5.4rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .first-section {
+    margin: 0;
+    width: 100%;
+  }
+
+  .second-section {
+    margin: 0 auto;
+  }
+
+  .speakers {
+    margin: 0;
+    align-items: center;
+  }
+
+  form {
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    font-size: 55%;
+  }
+
+  .first-section {
+    margin: 0;
+    width: 80%;
+  }
+
+  .second-section {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .speakers {
+    justify-content: start;
+  }
+  .third-section {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cards {
+    justify-content: start;
+  }
+
+  .card {
+    width: 250px;
+
+    .card-img-top {
+      max-width: 250px;
+    }
+  }
+
+  form {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .relevance {
+    flex-direction: column;
+    margin: 0;
+
+    .first-section {
+      margin: 0 auto;
+    }
+  }
+
+  .second-section {
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  .third-section {
+    margin: 2rem 8.7rem;
+  }
+
+  form {
+    justify-self: center;
+    align-self: center;
+    margin: 0 auto;
+    width: 100%;
+  }
 }
