@@ -62,11 +62,15 @@ function createSpeakers(arr) {
   for (let i = 0; i < arr.length; i++) {
     let par = document.createElement("div");
     let firstName = arr[i].first_name;
+    let saneFirstName = sanitize(firstName);
+
     let lastName = arr[i].last_name;
+    let saneLastName = sanitize(lastName);
+
     par.classList.add("speaker__div");
     par.innerHTML = `<div class="__info">
             <img src="${arr[i].avatar}" alt="" class="__avatar" />
-            <p class="__name">${firstName} ${lastName}</p>
+            <p class="__name">${saneFirstName} ${saneLastName}</p>
             <p class="__title">${arr[i].title} at ${arr[i].company}</p>
           </div>
   `;
@@ -228,6 +232,33 @@ const submitForm = async () => {
   const data = await JSON.stringify(response);
   console.log(data);
 };
+
+//------------------------SANITIZE RESPONSE REMOVE HTML TAGS FROM SPEAKERS INFOS----------------------//
+
+function sanitize(string) {
+  if (string.includes("<script>" && "</script>")) {
+    const idx = string.indexOf("<script>");
+    console.log(idx);
+    const idxTwo = string.lastIndexOf(">");
+    console.log(idxTwo);
+    newString = `${string.slice(0, idx)} ${string.slice(idxTwo + 1)}`;
+    console.log(newString);
+    return newString;
+  } else if (string.includes("<") && string.includes(">")) {
+    const idx = string.indexOf("<");
+    const idx2 = string.lastIndexOf("<");
+    const idxTwo = string.indexOf(">");
+    newString = `${string.slice(0, idx)} ${string.slice(idxTwo + 1, idx2)}`;
+    console.log(newString);
+    console.log(newString);
+    return newString;
+  }
+  return string;
+}
+
+// let lastnamee =
+//   '<span style="font-size:8px; font-family: Times;">Jack Daniels</span>';
+// sanitize(lastnamee);
 
 //-----------------------------------RENDER ALL INFOS ON THE PAGE---------------------------------------------//
 displayE();
