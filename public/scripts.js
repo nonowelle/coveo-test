@@ -27,16 +27,16 @@ function displayRelevanceEvent() {
   fetch("/events")
     .then(async (response) => {
       const data = await response.json();
-      console.log(data);
+
       // LOOP THROUGH ALL EVENTS TO FIND WICH ONE IS RELEVANCE 360
       const relevance = [];
       for (let i = 0; i < data.length; i++) {
-        data[i].name === "Relevance 360"
-          ? relevance.push(data[i])
-          : console.log("not this event");
+        if (data[i].name === "Relevance 360") {
+          relevance.push(data[i]);
+        }
       }
       const relevanceEvent = relevance[0];
-      console.log(relevanceEvent);
+
       return relevanceEvent;
     })
     .then(async (relevanceEvent) => {
@@ -94,7 +94,7 @@ function displayRelevance(data) {
 
   // const speakers = document.querySelector(".speakers");
   const speakersRelId = data.speakers_id;
-  console.log(speakersRelId);
+
   // createSpeakers(speakersInfo);
 }
 
@@ -157,12 +157,11 @@ function displaySpeakers(data) {
         for (let i = 0; i < speakers.length; i++) {
           //LOOP THROUGH RELEVANCE SPEAKERS ARR
           for (let j = 0; j < speakersRelId.length; j++) {
-            speakers[i].id == speakersRelId[j]
-              ? relSpeaker.push(speakers[i])
-              : console.log("NO");
+            if (speakers[i].id == speakersRelId[j]) {
+              relSpeaker.push(speakers[i]);
+            }
           }
         }
-        console.log(relSpeaker);
         createSpeakers(relSpeaker);
       }
       isRelSpeaker(speakers, speakersRelId);
@@ -184,6 +183,7 @@ const inputs = document.getElementsByTagName("input");
 
 form.addEventListener("submit", (e) => {
   console.log("Trying to submit");
+  e.preventDefault();
   validateForm(e);
 });
 
@@ -214,7 +214,7 @@ function validateForm(e) {
   }
 }
 
-const submitForm = async () => {
+function submitForm() {
   const userData = {
     name: name.value,
     firstName: firstName.value,
@@ -228,29 +228,35 @@ const submitForm = async () => {
     body: JSON.stringify(userData),
   };
 
-  const response = await fetch("/", options);
-  const data = await JSON.stringify(response);
-  console.log(data);
-};
+  fetch("/", options).then(async (response) => {
+    const data = await response.json();
+    console.log(data);
+    const form = document.querySelector("form");
+    form.classList.add("hidden");
+    const success = document.querySelector(".success");
+    success.classList.remove("hidden");
+  });
+  // .then((data) => {
+  //   document.querySelector(".error").textContent(data);
+  // });
+}
 
 //------------------------SANITIZE RESPONSE REMOVE HTML TAGS FROM SPEAKERS INFOS----------------------//
 
 function sanitize(string) {
   if (string.includes("<script>" && "</script>")) {
     const idx = string.indexOf("<script>");
-    console.log(idx);
+
     const idxTwo = string.lastIndexOf(">");
-    console.log(idxTwo);
+
     newString = `${string.slice(0, idx)} ${string.slice(idxTwo + 1)}`;
-    console.log(newString);
+
     return newString;
   } else if (string.includes("<") && string.includes(">")) {
     const idx = string.indexOf("<");
     const idx2 = string.lastIndexOf("<");
     const idxTwo = string.indexOf(">");
     newString = `${string.slice(0, idx)} ${string.slice(idxTwo + 1, idx2)}`;
-    console.log(newString);
-    console.log(newString);
     return newString;
   }
   return string;
