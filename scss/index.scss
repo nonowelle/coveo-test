@@ -85,6 +85,7 @@ footer {
 main {
   margin: 4.6rem 0rem;
   overflow-x: hidden;
+  background: top right url("/images/Ellipse1.svg") no-repeat;
 }
 
 //------------------------RELEVANCE-------------------------//
@@ -223,7 +224,7 @@ button {
 .par {
   padding: 5.1rem 0 0 0;
   margin: 0;
-  max-width: 589px;
+  max-width: 592px;
 }
 .third-section {
   display: block;
@@ -250,23 +251,25 @@ button {
 
   .avatar {
     border-radius: 50%;
-  }
-
-  .informations {
-    bottom: 125px;
-    left: -108px;
-    font-weight: $regular;
-
-    .name {
-      margin: 0;
-    }
-    .title {
-      color: $grey;
-      font-size: 1.4rem;
-      margin: 0;
-    }
+    box-shadow: 3px -3px 0 $orange;
   }
 }
+
+.informations {
+  bottom: 125px;
+  left: -108px;
+  font-weight: $regular;
+
+  .name {
+    margin: 0;
+  }
+  .title {
+    color: $grey;
+    font-size: 1.4rem;
+    margin: 0;
+  }
+}
+
 //-------------SECOND SECTION---------------------//
 .second-section {
   width: 30%;
@@ -334,6 +337,10 @@ button {
 
 //SMALL LAPTOP
 @media screen and (max-width: 1200px) {
+  main {
+    background: 130% 0 url("/images/Ellipse1.svg") no-repeat;
+  }
+
   .relevance {
     height: 580px;
     .par {
@@ -374,7 +381,6 @@ button {
   }
   .relevance {
     width: 85%;
-    align-items: center;
     .first-section {
       margin: 0 4rem 0 6.7rem;
     }
@@ -403,16 +409,36 @@ button {
   p {
     font-size: 1.8rem;
   }
+  main {
+    background: 330px 335px url("/images/Ellipse1.svg") no-repeat;
+  }
+
   .relevance {
+    margin: 0 auto;
+    height: 100%;
+
     .first-section {
-      margin: 0 1rem 0 6.7rem;
+      width: 90%;
+      margin: 3rem auto;
+      justify-content: center;
+      align-items: center;
     }
     .infos {
-      margin: 0 6.7rem;
+      margin: 0 auto;
+      width: 90%;
     }
     .par {
-      max-width: 302px;
+      margin-bottom: 3rem;
+      max-width: 78%;
     }
+  }
+
+  .second-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
   }
 
   .third-section {
@@ -438,7 +464,9 @@ button {
   p {
     font-size: 1.7rem;
   }
-
+  main {
+    background: 280px 330px url("/images/Ellipse1.svg") no-repeat;
+  }
   .logo {
     margin: 0 0 6rem 4.96rem;
   }
@@ -495,5 +523,8 @@ button {
   }
   h3 {
     font-size: 2.3rem;
+  }
+  main {
+    background: none;
   }
 }

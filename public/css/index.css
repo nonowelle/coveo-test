@@ -68,6 +68,7 @@ footer {
 main {
   margin: 4.6rem 0rem;
   overflow-x: hidden;
+  background: top right url("/images/Ellipse1.svg") no-repeat;
 }
 
 form {
@@ -241,7 +242,7 @@ button {
 .par {
   padding: 5.1rem 0 0 0;
   margin: 0;
-  max-width: 589px;
+  max-width: 592px;
 }
 
 .third-section {
@@ -284,19 +285,21 @@ button {
 
 .speaker-wrap .avatar {
   border-radius: 50%;
+  -webkit-box-shadow: 3px -3px 0 #f05245;
+          box-shadow: 3px -3px 0 #f05245;
 }
 
-.speaker-wrap .informations {
+.informations {
   bottom: 125px;
   left: -108px;
   font-weight: 400;
 }
 
-.speaker-wrap .informations .name {
+.informations .name {
   margin: 0;
 }
 
-.speaker-wrap .informations .title {
+.informations .title {
   color: #626971;
   font-size: 1.4rem;
   margin: 0;
@@ -380,6 +383,9 @@ button {
 }
 
 @media screen and (max-width: 1200px) {
+  main {
+    background: 130% 0 url("/images/Ellipse1.svg") no-repeat;
+  }
   .relevance {
     height: 580px;
   }
@@ -419,9 +425,6 @@ button {
   }
   .relevance {
     width: 85%;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
   }
   .relevance .first-section {
     margin: 0 4rem 0 6.7rem;
@@ -444,14 +447,43 @@ button {
   p {
     font-size: 1.8rem;
   }
+  main {
+    background: 330px 335px url("/images/Ellipse1.svg") no-repeat;
+  }
+  .relevance {
+    margin: 0 auto;
+    height: 100%;
+  }
   .relevance .first-section {
-    margin: 0 1rem 0 6.7rem;
+    width: 90%;
+    margin: 3rem auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .relevance .infos {
-    margin: 0 6.7rem;
+    margin: 0 auto;
+    width: 90%;
   }
   .relevance .par {
-    max-width: 302px;
+    margin-bottom: 3rem;
+    max-width: 78%;
+  }
+  .second-section {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 3rem;
   }
   .third-section .speakers .speaker-wrap {
     margin: 2.25rem 2rem;
@@ -471,6 +503,9 @@ button {
   }
   p {
     font-size: 1.7rem;
+  }
+  main {
+    background: 280px 330px url("/images/Ellipse1.svg") no-repeat;
   }
   .logo {
     margin: 0 0 6rem 4.96rem;
@@ -541,6 +576,9 @@ button {
   }
   h3 {
     font-size: 2.3rem;
+  }
+  main {
+    background: none;
   }
 }
 /*# sourceMappingURL=index.css.map */
