@@ -303,13 +303,14 @@ button {
   transition: margin-top ease 0.5s;
 
   .img-container {
-    max-width: 285px;
+    max-width: 267px;
     height: 165px;
   }
 
   .card-img-top {
+    min-width: 100%;
     max-width: 100%;
-    height: auto;
+    height: 165px;
     border-radius: 8px 8px 0 0;
   }
   .card-body {
