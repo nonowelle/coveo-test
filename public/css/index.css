@@ -85,7 +85,7 @@ form {
   background: white;
   border: solid #e5e8e8 1px;
   border-radius: 8px;
-  padding: 5rem 3.5rem;
+  padding: 3.5rem 3.5rem;
   -webkit-box-shadow: 3px 3px 16px 0 #e5e8e8;
           box-shadow: 3px 3px 16px 0 #e5e8e8;
   -moz-box-shadow: 3px 3px 16px 0 #e5e8e8;
@@ -213,14 +213,14 @@ button {
   height: 500px;
 }
 
-.relevance .infos {
-  width: 100%;
-  margin: 0 10rem;
-}
-
 .relevance .first-section {
   width: 50%;
   margin: 0 7rem 0 10rem;
+}
+
+.relevance .infos {
+  width: 100%;
+  margin: 0 10rem;
 }
 
 .event {
@@ -379,22 +379,73 @@ button {
   margin-top: 0;
 }
 
-@media screen and (max-width: 1200px) {
-  :root {
-    font-size: 60%;
+@media screen and (max-width: 768px) {
+  .relevance {
+    width: 85%;
   }
   .relevance .first-section {
+    margin: 0 1rem 0 6.7rem !important;
+  }
+  .relevance .infos {
+    margin: 0 6.7rem;
+  }
+  .relevance .par {
+    max-width: 302px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  h1 {
+    font-size: 5rem;
+  }
+  h2 {
+    font-size: 3.2rem;
+  }
+  h3 {
+    font-size: 2.4rem;
+  }
+  p {
+    font-size: 1.8rem;
+  }
+  .logo {
+    margin: 0 0 6rem 6.7rem;
+  }
+  .relevance {
+    width: 85%;
+  }
+  .relevance .first-section {
+    margin: 0 4rem 0 6.7rem;
+  }
+  .relevance .infos {
+    margin: 0 6.7rem;
+  }
+  .relevance .par {
+    max-width: 363px;
+  }
+  .card {
+    margin: 1rem 0.8rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .relevance .first-section {
     width: 50%;
-    margin: 0 1rem 0 10rem;
   }
   .relevance .par {
     max-width: 480px;
   }
   .third-section {
     margin: 10rem auto 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   .third-section .speakers {
-    width: 80%;
+    width: 90%;
   }
 }
 /*# sourceMappingURL=index.css.map */

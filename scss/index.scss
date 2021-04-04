@@ -97,7 +97,7 @@ form {
   background: white;
   border: solid $form-stroke 1px;
   border-radius: 8px;
-  padding: 5rem 3.5rem;
+  padding: 3.5rem 3.5rem;
   box-shadow: 3px 3px 16px 0 $form-stroke;
   -moz-box-shadow: 3px 3px 16px 0 $form-stroke;
 
@@ -192,15 +192,14 @@ button {
   width: 100%;
   flex-wrap: wrap;
   height: 500px;
+  .first-section {
+    width: 50%;
+    margin: 0 7rem 0 10rem;
+  }
 
   .infos {
     width: 100%;
     margin: 0 10rem;
-  }
-
-  .first-section {
-    width: 50%;
-    margin: 0 7rem 0 10rem;
   }
 }
 
@@ -349,63 +348,91 @@ button {
 //   }
 // }
 
-// @media screen and (max-width: 576px) {
-//   .first-section {
-//     margin: 0;
-//     width: 100%;
-//   }
+@media screen and (max-width: 576px) {
+  //   .first-section {
+  //     margin: 0;
+  //     width: 100%;
+  //   }
 
-//   .second-section {
-//     margin: 0 auto;
-//   }
+  //   .second-section {
+  //     margin: 0 auto;
+  //   }
 
-//   .speakers {
-//     margin: 0;
-//     align-items: center;
-//     justify-content: center;
-//   }
+  //   .speakers {
+  //     margin: 0;
+  //     align-items: center;
+  //     justify-content: center;
+  //   }
 
-//   .speaker__div {
-//     justify-content: center;
-//     align-items: center;
-//     margin: 2rem 2rem;
-//   }
+  //   .speaker__div {
+  //     justify-content: center;
+  //     align-items: center;
+  //     margin: 2rem 2rem;
+  //   }
 
-//   .third-section {
-//     margin: 3rem auto;
-//   }
-// }
+  //   .third-section {
+  //     margin: 3rem auto;
+  //   }
+}
 
-// @media screen and (max-width: 768px) {
-//   form {
-//     margin: 2rem;
-//     align-self: center;
-//     width: 80%;
-//   }
-
-//   .cards {
-//     justify-content: center;
-//     align-items: center;
-//   }
-
-//   .card {
-//     scale: ;
-//   }
-// }
-
-// @media screen and (max-width: 1024px) {
-//   .card {
-//     margin: 1rem 0.8rem;
-//   }
-// }
-@media screen and (max-width: 1200px) {
-  :root {
-    font-size: 60%;
+@media screen and (max-width: 768px) {
+  .relevance {
+    width: 85%;
+    .first-section {
+      margin: 0 1rem 0 6.7rem !important;
+    }
+    .infos {
+      margin: 0 6.7rem;
+    }
+    .par {
+      max-width: 302px;
+    }
   }
+}
+
+//TABLET
+@media screen and (max-width: 1024px) {
+  h1 {
+    font-size: 5rem;
+  }
+
+  h2 {
+    font-size: 3.2rem;
+  }
+
+  h3 {
+    font-size: 2.4rem;
+  }
+
+  p {
+    font-size: 1.8rem;
+  }
+
+  .logo {
+    margin: 0 0 6rem 6.7rem;
+  }
+  .relevance {
+    width: 85%;
+    .first-section {
+      margin: 0 4rem 0 6.7rem;
+    }
+    .infos {
+      margin: 0 6.7rem;
+    }
+    .par {
+      max-width: 363px;
+    }
+  }
+
+  .card {
+    margin: 1rem 0.8rem;
+  }
+}
+//SMALL LAPTOP
+@media screen and (max-width: 1200px) {
   .relevance {
     .first-section {
       width: 50%;
-      margin: 0 1rem 0 10rem;
     }
     .par {
       max-width: 480px;
@@ -414,8 +441,10 @@ button {
 
   .third-section {
     margin: 10rem auto 0 auto;
+    display: flex;
+    flex-direction: column;
     .speakers {
-      width: 80%;
+      width: 90%;
     }
   }
 }
