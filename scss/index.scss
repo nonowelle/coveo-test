@@ -83,15 +83,14 @@ footer {
   font-size: 1.4rem;
 }
 main {
-  margin: 5rem 0rem;
-  width: 100%;
+  margin: 4.6rem 0rem;
   overflow-x: hidden;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  margin: 16rem auto;
+  margin: 0;
   width: 344px;
   min-height: 417px;
   max-height: 468px;
@@ -104,7 +103,7 @@ form {
 
   .error {
     width: 100%;
-    margin: 1.6rem 0;
+    // margin: 1.6rem 0;
     padding: 1.3rem;
     border-radius: 8px;
     border: none;
@@ -121,14 +120,14 @@ form {
 }
 
 .success {
-  margin: 20rem auto;
+  margin: 20rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 344px;
   border-radius: 8px;
-  min-height: 208px;
+  height: 208px;
   box-shadow: 3px 3px 16px 0 $form-stroke;
   -moz-box-shadow: 3px 3px 16px 0 $form-stroke;
   background: white;
@@ -190,23 +189,28 @@ button {
 
 .relevance {
   display: flex;
-  min-height: 100%;
-  height: 100%;
   width: 100%;
+  flex-wrap: wrap;
+  height: 500px;
+
+  .infos {
+    width: 100%;
+    margin: 0 10rem;
+  }
 
   .first-section {
-    width: 70%;
-    margin: 0 0 6rem 10rem;
+    width: 50%;
+    margin: 0 7rem 0 10rem;
   }
 }
 
-.first-section__event {
+.event {
   font-size: 1.6rem;
   font-weight: 700;
   color: $orange;
 }
 
-.first-section__date {
+.date {
   font-size: 1.6rem;
 
   .fa-calendar-alt {
@@ -215,49 +219,47 @@ button {
   }
 }
 
-.first-section__par {
-  margin: 6.4rem 0;
+.par {
+  padding: 5.1rem 0 0 0;
+  margin: 0;
+  max-width: 589px;
 }
-
+.third-section {
+  display: block;
+  width: 85%;
+  margin: 0 auto;
+}
 .speakers {
   display: flex;
   flex-wrap: wrap;
+  width: 70%;
   max-width: 713px;
   flex-direction: row;
   justify-content: flex-start;
 }
 
-.speaker__div {
+.speaker-wrap {
   z-index: 1;
   height: auto;
   text-align: center;
   display: flex;
   flex-direction: column;
-  margin: 2rem 3rem;
+  margin: 2.25rem 5.4rem;
   max-width: 128px;
-  //   position: absolute;
 
-  .speaker__bg {
-    width: 128px;
-    height: auto;
-    top: 0;
-    left: 9px;
-    z-index: -1;
-  }
-
-  .__avatar {
+  .avatar {
     border-radius: 50%;
   }
 
-  .__info {
+  .informations {
     bottom: 125px;
     left: -108px;
     font-weight: $regular;
 
-    .__name {
+    .name {
       margin: 0;
     }
-    .__title {
+    .title {
       color: $grey;
       font-size: 1.4rem;
       margin: 0;
@@ -266,17 +268,13 @@ button {
 }
 //-------------SECOND SECTION---------------------//
 .second-section {
-  width: 40%;
-}
-.second-section::before {
-  background-image: url("./public/images/Ellipse3.png");
-  background-size: 100%;
+  width: 30%;
 }
 
-//-------------THIRD SECTION---------------------//
-.third-section {
-  margin: 2rem 10rem;
-  padding-top: 3rem;
+//-------------FOURTH SECTION---------------------//
+.fourth-section {
+  margin: 3rem 10rem;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -289,7 +287,7 @@ button {
 }
 
 .card {
-  margin: 3rem 1rem;
+  margin: 3rem 2.2rem 0 2.2rem;
   width: 267px;
   max-height: 350px;
   border: solid $form-stroke 1px;
@@ -300,9 +298,14 @@ button {
   cursor: pointer;
   transition: margin-top ease 0.5s;
 
+  .img-container {
+    max-width: 285px;
+    height: 165px;
+  }
+
   .card-img-top {
-    max-width: 267px;
-    height: 178px;
+    max-width: 100%;
+    height: auto;
     border-radius: 8px 8px 0 0;
   }
   .card-body {
@@ -335,77 +338,84 @@ button {
 //     }
 //   }
 
+//   h2 {
+//     font-size: 2.7rem;
+//     margin: 2rem 0;
+//   }
+
+//   .first-section {
+//     margin: 0;
+//     width: 100%;
+//   }
+// }
+
+// @media screen and (max-width: 576px) {
 //   .first-section {
 //     margin: 0;
 //     width: 100%;
 //   }
 
+//   .second-section {
+//     margin: 0 auto;
+//   }
+
+//   .speakers {
+//     margin: 0;
+//     align-items: center;
+//     justify-content: center;
+//   }
+
+//   .speaker__div {
+//     justify-content: center;
+//     align-items: center;
+//     margin: 2rem 2rem;
+//   }
+
 //   .third-section {
-//     margin: 0 5.4rem;
+//     margin: 3rem auto;
 //   }
 // }
 
-@media screen and (max-width: 576px) {
-  .first-section {
-    margin: 0;
-    width: 100%;
-  }
+// @media screen and (max-width: 768px) {
+//   form {
+//     margin: 2rem;
+//     align-self: center;
+//     width: 80%;
+//   }
 
-  .second-section {
-    margin: 0 auto;
-  }
+//   .cards {
+//     justify-content: center;
+//     align-items: center;
+//   }
 
-  .speakers {
-    margin: 0;
-    align-items: center;
-    justify-content: center;
-  }
+//   .card {
+//     scale: ;
+//   }
+// }
 
-  .speaker__div {
-    justify-content: center;
-    align-items: center;
-    margin: 2rem 2rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  form {
-    margin: 2rem;
-    align-self: center;
-    width: 80%;
-  }
-}
+// @media screen and (max-width: 1024px) {
+//   .card {
+//     margin: 1rem 0.8rem;
+//   }
+// }
 @media screen and (max-width: 1200px) {
   :root {
     font-size: 60%;
   }
-  .logo {
-    width: 70%;
-    margin: 0 auto;
-  }
-
   .relevance {
-    flex-direction: column;
-    margin: 0;
-
     .first-section {
-      margin: 0 auto;
+      width: 50%;
+      margin: 0 1rem 0 10rem;
     }
-  }
-
-  .second-section {
-    margin: 0 auto;
-    width: 70%;
-    form {
-      margin: 0;
-      width: 70%;
-      max-width: 450px;
-      justify-content: flex-start;
+    .par {
+      max-width: 480px;
     }
   }
 
   .third-section {
-    width: 70%;
-    margin: 2rem auto;
+    margin: 10rem auto 0 auto;
+    .speakers {
+      width: 80%;
+    }
   }
 }

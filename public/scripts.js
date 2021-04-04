@@ -50,7 +50,7 @@ function displayRelevanceEvent() {
 //------------------------FORMAT DATE-----------------------------//
 
 function formatDate(dateToFormat) {
-  const date = document.querySelector(".first-section__date");
+  const date = document.querySelector(".date");
   const dateFormated = dateToFormat.slice(0, 10);
   const finalDate = dayjs(dateFormated).format("dddd, MMMM D YYYY");
   date.innerHTML = `<i class="far fa-calendar-alt"></i>${finalDate}`;
@@ -67,11 +67,11 @@ function createSpeakers(arr) {
     let lastName = arr[i].last_name;
     let saneLastName = sanitize(lastName);
 
-    par.classList.add("speaker__div");
-    par.innerHTML = `<div class="__info">
-            <img src="${arr[i].avatar}" alt="" class="__avatar" />
-            <p class="__name">${saneFirstName} ${saneLastName}</p>
-            <p class="__title">${arr[i].title} at ${arr[i].company}</p>
+    par.classList.add("speaker-wrap");
+    par.innerHTML = `<div class="informations">
+            <img src="${arr[i].avatar}" alt="" class="avatar" />
+            <p class="name">${saneFirstName} ${saneLastName}</p>
+            <p class="title">${arr[i].title} at ${arr[i].company}</p>
           </div>
   `;
     document.querySelector(".speakers").appendChild(par);
@@ -85,7 +85,7 @@ function displayRelevance(data) {
   title.textContent = data.name;
 
   //Select the description paragraph and change it
-  const par = document.querySelector(".first-section__par");
+  const par = document.querySelector(".par");
   par.textContent = data.description;
 
   // DATE
@@ -120,11 +120,13 @@ function displayEvents(data) {
     let card = document.createElement("div");
     card.classList.add("card");
     card.innerHTML = `
-        <img
+    <div class="img-container">    
+    <img
           class="card-img-top"
           src="${data[i].logo}"
           alt="Card image cap"
         />
+        </div>
         <div class="card-body">
           <p class="card-title"> ${data[i].name}</p>
           <p class="card-text">
@@ -232,9 +234,17 @@ function submitForm() {
     const data = await response.json();
     console.log(data);
     const form = document.querySelector("form");
-    form.classList.add("hidden");
-    const success = document.querySelector(".success");
-    success.classList.remove("hidden");
+    form.parentNode.removeChild(form);
+    const secondSection = document.querySelector(".second-section");
+
+    let success = document.createElement("div");
+    success.innerHTML = `
+    <div class="success">
+    <i class="far fa-check-circle"></i>
+    <p>Thank you for your register.</p>
+    </div> `;
+
+    secondSection.appendChild(success);
   });
   // .then((data) => {
   //   document.querySelector(".error").textContent(data);
