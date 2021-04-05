@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node src/index.js"
   },
   "author": "Marie-Ève Noël",
   "license": "ISC",
@@ -20,10 +20,5 @@
     "node-sass": "^5.0.0",
     "validator": "^13.5.2"
   },
-  "devDependencies": {
-    "@babel/core": "^7.13.14",
-    "@babel/plugin-transform-runtime": "^7.13.10",
-    "@babel/runtime-corejs2": "^7.13.10",
-    "parcel-bundler": "^1.12.5"
-  }
+  "devDependencies": {}
 }
