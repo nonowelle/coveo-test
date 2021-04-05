@@ -9,7 +9,10 @@ app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true }));
 
 //Setting up the .env file
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
 const api_key = process.env.API_KEY;
 
 // Display the files in public folder
