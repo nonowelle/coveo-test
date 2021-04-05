@@ -175,6 +175,7 @@ function displaySpeakers(data) {
 }
 
 //--------------------FORM-VALIDATION------------------------------------//
+
 const email = document.querySelector("#mail");
 const form = document.querySelector("form");
 const name = document.querySelector("#name");
@@ -183,36 +184,44 @@ const error = document.querySelector("span");
 const button = document.querySelector("button");
 const inputs = document.getElementsByTagName("input");
 
-form.addEventListener("submit", (e) => {
-  console.log("Trying to submit");
-  e.preventDefault();
-  validateForm(e);
-});
+function validateOnSubmit() {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    for (let i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener("input", () => {
+        validateInputs(inputs[i]);
+      });
+    }
+  });
 
-function validateForm(e) {
-  if (email.value && name.value && firstName.value) {
-    email.classList.remove("invalid");
-    name.classList.remove("invalid");
-    firstName.classList.remove("invalid");
-    button.classList.add("ready");
-    submitForm();
-  } else {
+  button.addEventListener("click", submitForm);
+}
+
+function validateOnEntry() {
+  for (let i = 0; i < inputs.length; i++) {
+    inputs[i].addEventListener("input", () => {
+      validateInputs(inputs[i]);
+    });
+  }
+}
+
+function validateInputs(field) {
+  // Check presence of values
+  if (field.value.trim() == "") {
+    field.classList.add("invalid");
     button.classList.remove("ready");
-    e.preventDefault();
+  } else {
+    field.classList.remove("invalid");
   }
 
-  if (validator.isEmpty(name.value)) {
-    name.classList.add("invalid");
-    e.preventDefault();
-  }
-  if (validator.isEmpty(firstName.value)) {
-    firstName.classList.add("invalid");
-    e.preventDefault();
-  }
-
-  if (!validator.isEmail(email.value)) {
-    email.classList.add("invalid");
-    e.preventDefault();
+  // check for a valid email address
+  if (field.type === "email") {
+    if (!validator.isEmail(field.value)) {
+      field.classList.add("invalid");
+      button.classList.remove("ready");
+    } else {
+      button.classList.add("ready");
+    }
   }
 }
 
@@ -229,33 +238,37 @@ function submitForm() {
     },
     body: JSON.stringify(userData),
   };
+  if (button.classList.contains("ready")) {
+    fetch("/", options).then(async (response) => {
+      const data = await response.json();
+      const email = document.querySelector("#mail");
+      const error = document.querySelector("span");
 
-  fetch("/", options).then(async (response) => {
-    const data = await response.json();
-    const email = document.querySelector("#mail");
-    const error = document.querySelector("span");
-
-    if (data._created) {
-      const form = document.querySelector("form");
-      const secondSection = document.querySelector(".second-section");
-      form.parentNode.removeChild(form);
-      const success = document.createElement("div");
-      success.innerHTML = `
+      if (data._created) {
+        const form = document.querySelector("form");
+        const secondSection = document.querySelector(".second-section");
+        form.parentNode.removeChild(form);
+        const success = document.createElement("div");
+        success.innerHTML = `
     <div class="success">
     <i class="far fa-check-circle"></i>
     <p>Thank you for your register.</p>
     </div> `;
-      secondSection.appendChild(success);
-    }
-    if (email.classList.contains("invalid")) {
-      error.classList.remove("error");
-    } else {
-      error.classList.add("error");
-      error.innerText =
-        "Sorry the user already exists, please use another email.";
-    }
-  });
+        secondSection.appendChild(success);
+      }
+      if (email.classList.contains("invalid")) {
+        error.classList.remove("error");
+      } else {
+        error.classList.add("error");
+        error.innerText =
+          "Sorry the user already exists, please use another email.";
+      }
+    });
+  }
 }
+
+validateOnEntry();
+validateOnSubmit();
 
 //------------------------SANITIZE RESPONSE REMOVE HTML TAGS FROM SPEAKERS INFOS----------------------//
 
