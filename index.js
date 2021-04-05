@@ -2,9 +2,9 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 const axios = require("axios");
-
 const morgan = require("morgan");
 const fetch = require("node-fetch");
+
 app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true }));
 
@@ -18,6 +18,7 @@ app.use(express.static("public"));
 app.use(morgan("tiny"));
 
 //Get the data from the Coveo API
+
 app.get("/speakers", async (req, res) => {
   let config = {
     id: req.params.id,

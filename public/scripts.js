@@ -7,7 +7,7 @@ if (window.HTMLCollection && !HTMLCollection.prototype.forEach) {
 }
 
 //--------------------DISPLAY REL 360 -----------------//
-function displayRelevanceEvent() {
+function display() {
   fetch("/events")
     .then(async (response) => {
       const data = await response.json();
@@ -279,10 +279,6 @@ function sanitize(string) {
   return string;
 }
 
-// let lastnamee =
-//   '<span style="font-size:8px; font-family: Times;">Jack Daniels</span>';
-// sanitize(lastnamee);
-
 //-----------------------------------RENDER ALL INFOS ON THE PAGE---------------------------------------------//
-// displayE();
-displayRelevanceEvent();
+
+display();
