@@ -100,20 +100,18 @@ form {
   background: white;
   border: solid $form-stroke 1px;
   border-radius: 8px;
-  padding: 3.5rem 3.5rem;
+  padding: 2rem 3.5rem;
   box-shadow: 3px 3px 16px 0 $form-stroke;
   -moz-box-shadow: 3px 3px 16px 0 $form-stroke;
 
   .error {
-    width: 100%;
-    // margin: 1.6rem 0;
-    padding: 1.3rem;
+    width: 276.26px;
+    padding: 1.3rem 1.29rem;
     border-radius: 8px;
     border: none;
     background-color: $form-red;
     font-size: 1.4rem;
     color: black;
-    text-align: center;
   }
 }
 
@@ -142,8 +140,9 @@ form {
 }
 
 input {
-  width: 100%;
-  margin: 1.2rem 0;
+  width: 276.26px;
+  min-height: 58px;
+  margin: 1rem 0;
   padding: 1.3rem;
   border-radius: 8px;
   border: 1px solid $background;
@@ -172,7 +171,8 @@ input:focus,
 }
 
 button {
-  width: 100%;
+  width: 276.26px;
+  min-height: 58px;
   margin: 1.6rem 0;
   padding: 1.3rem;
   border-radius: 8px;

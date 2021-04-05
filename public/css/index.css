@@ -86,21 +86,20 @@ form {
   background: white;
   border: solid #e5e8e8 1px;
   border-radius: 8px;
-  padding: 3.5rem 3.5rem;
+  padding: 2rem 3.5rem;
   -webkit-box-shadow: 3px 3px 16px 0 #e5e8e8;
           box-shadow: 3px 3px 16px 0 #e5e8e8;
   -moz-box-shadow: 3px 3px 16px 0 #e5e8e8;
 }
 
 form .error {
-  width: 100%;
-  padding: 1.3rem;
+  width: 276.26px;
+  padding: 1.3rem 1.29rem;
   border-radius: 8px;
   border: none;
   background-color: #ff8177;
   font-size: 1.4rem;
   color: black;
-  text-align: center;
 }
 
 .hidden {
@@ -139,8 +138,9 @@ form .error {
 }
 
 input {
-  width: 100%;
-  margin: 1.2rem 0;
+  width: 276.26px;
+  min-height: 58px;
+  margin: 1rem 0;
   padding: 1.3rem;
   border-radius: 8px;
   border: 1px solid #f6f7f9;
@@ -187,7 +187,8 @@ input:focus,
 }
 
 button {
-  width: 100%;
+  width: 276.26px;
+  min-height: 58px;
   margin: 1.6rem 0;
   padding: 1.3rem;
   border-radius: 8px;

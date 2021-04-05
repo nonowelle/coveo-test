@@ -232,23 +232,29 @@ function submitForm() {
 
   fetch("/", options).then(async (response) => {
     const data = await response.json();
-    console.log(data);
-    const form = document.querySelector("form");
-    form.parentNode.removeChild(form);
-    const secondSection = document.querySelector(".second-section");
+    const email = document.querySelector("#mail");
+    const error = document.querySelector("span");
 
-    let success = document.createElement("div");
-    success.innerHTML = `
+    if (data._created) {
+      const form = document.querySelector("form");
+      const secondSection = document.querySelector(".second-section");
+      form.parentNode.removeChild(form);
+      const success = document.createElement("div");
+      success.innerHTML = `
     <div class="success">
     <i class="far fa-check-circle"></i>
     <p>Thank you for your register.</p>
     </div> `;
-
-    secondSection.appendChild(success);
+      secondSection.appendChild(success);
+    }
+    if (email.classList.contains("invalid")) {
+      error.classList.remove("error");
+    } else {
+      error.classList.add("error");
+      error.innerText =
+        "Sorry the user already exists, please use another email.";
+    }
   });
-  // .then((data) => {
-  //   document.querySelector(".error").textContent(data);
-  // });
 }
 
 //------------------------SANITIZE RESPONSE REMOVE HTML TAGS FROM SPEAKERS INFOS----------------------//

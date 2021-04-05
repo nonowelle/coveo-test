@@ -89,7 +89,7 @@ app.post("/", async (req, res) => {
       if (message._createdby) {
         res.send(message);
       } else {
-        console.log("OH OH");
+        res.send(message);
       }
     })
     .catch((error) => console.log("error", error));
