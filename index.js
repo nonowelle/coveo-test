@@ -2,10 +2,8 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 const axios = require("axios");
-const qs = require("qs");
+
 const morgan = require("morgan");
-const validator = require("validator");
-const { response } = require("express");
 const fetch = require("node-fetch");
 app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true }));

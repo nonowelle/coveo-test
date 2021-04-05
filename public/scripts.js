@@ -6,22 +6,6 @@ if (window.HTMLCollection && !HTMLCollection.prototype.forEach) {
   HTMLCollection.prototype.forEach = Array.prototype.forEach;
 }
 
-//-------------------DISPLAY OTHER EVENTS ------------------//
-function displayE() {
-  fetch("/events")
-    .then(async (response) => {
-      const data = await response.json();
-      return data;
-    })
-    .then(async (data) => {
-      displayEvents(data);
-    })
-
-    .catch(function (error) {
-      console.log(error);
-    });
-}
-
 //--------------------DISPLAY REL 360 -----------------//
 function displayRelevanceEvent() {
   fetch("/events")
@@ -30,18 +14,24 @@ function displayRelevanceEvent() {
 
       // LOOP THROUGH ALL EVENTS TO FIND WICH ONE IS RELEVANCE 360
       const relevance = [];
+      const otherEvents = [];
       for (let i = 0; i < data.length; i++) {
         if (data[i].name === "Relevance 360") {
           relevance.push(data[i]);
+        } else {
+          otherEvents.push(data[i]);
         }
       }
-      const relevanceEvent = relevance[0];
 
-      return relevanceEvent;
+      const allEvents = { relevance: relevance[0], others: otherEvents };
+
+      // return relevanceEvent;
+      return allEvents;
     })
-    .then(async (relevanceEvent) => {
-      displayRelevance(relevanceEvent);
-      displaySpeakers(relevanceEvent);
+    .then(async (allEvents) => {
+      displayRelevance(allEvents.relevance);
+      displaySpeakers(allEvents.relevance);
+      displayEvents(allEvents.others);
     })
     .catch(function (error) {
       console.log(error);
@@ -103,7 +93,7 @@ function displayRelevance(data) {
 function displayEvents(data) {
   //select the cards div
   const cards = document.querySelector(".cards");
-  for (let i = 0; i < data.length - 1; i++) {
+  for (let i = 0; i < data.length; i++) {
     //SHORTEN THE DESCRIPTION OF EACH EVENT
     let desc = data[i].description;
     const maxLength = 80;
@@ -146,8 +136,6 @@ function displaySpeakers(data) {
       return infos;
     })
     .then((infos) => {
-      // fetchEvents();
-
       const speakers = infos;
       // const speakersRelId = [2, 1, 3, 7, 9];
       const speakersRelId = data.speakers_id;
@@ -296,5 +284,5 @@ function sanitize(string) {
 // sanitize(lastnamee);
 
 //-----------------------------------RENDER ALL INFOS ON THE PAGE---------------------------------------------//
-displayE();
+// displayE();
 displayRelevanceEvent();
