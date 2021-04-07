@@ -1,3 +1,8 @@
+const dayjs = require("dayjs");
+const advancedFormat = require("dayjs");
+dayjs.extend(advancedFormat);
+const validator = require("validator");
+
 //-----------POLYFILL FOR FOR EACH IN E11-----------------//
 if (window.NodeList && !NodeList.prototype.forEach) {
   NodeList.prototype.forEach = Array.prototype.forEach;
