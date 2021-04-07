@@ -2,17 +2,12 @@ const dayjs = require("dayjs");
 const advancedFormat = require("dayjs");
 dayjs.extend(advancedFormat);
 const validator = require("validator");
+const formatDate = require("./formatDate");
+const createSpeakers = require("./createSpeakers");
 
-//-----------POLYFILL FOR FOR EACH IN E11-----------------//
-if (window.NodeList && !NodeList.prototype.forEach) {
-  NodeList.prototype.forEach = Array.prototype.forEach;
-}
-if (window.HTMLCollection && !HTMLCollection.prototype.forEach) {
-  HTMLCollection.prototype.forEach = Array.prototype.forEach;
-}
-
-//--------------------DISPLAY REL 360 -----------------//
+//--------------------MAIN FUNCTION DISPLAY REL 360 -----------------//
 function display() {
+  //fetch the events data from API
   fetch("/events")
     .then(async (response) => {
       const data = await response.json();
@@ -30,7 +25,7 @@ function display() {
 
       const allEvents = { relevance: relevance[0], others: otherEvents };
 
-      // return relevanceEvent;
+      // return allEvents informations;
       return allEvents;
     })
     .then(async (allEvents) => {
@@ -41,36 +36,6 @@ function display() {
     .catch(function (error) {
       console.log(error);
     });
-}
-//------------------------FORMAT DATE-----------------------------//
-
-function formatDate(dateToFormat) {
-  const date = document.querySelector(".date");
-  const dateFormated = dateToFormat.slice(0, 10);
-  const finalDate = dayjs(dateFormated).format("dddd, MMMM D YYYY");
-  date.innerHTML = `<i class="far fa-calendar-alt"></i>${finalDate}`;
-}
-
-//------------------------CREATE SPEAKERS----------------------------//
-function createSpeakers(arr) {
-  //Create a speaker div for each speaker of Relevance 360
-  for (let i = 0; i < arr.length; i++) {
-    let par = document.createElement("div");
-    let firstName = arr[i].first_name;
-    let saneFirstName = sanitize(firstName);
-
-    let lastName = arr[i].last_name;
-    let saneLastName = sanitize(lastName);
-
-    par.classList.add("speaker-wrap");
-    par.innerHTML = `<div class="informations">
-            <img src="${arr[i].avatar}" alt="" class="avatar" />
-            <p class="name">${saneFirstName} ${saneLastName}</p>
-            <p class="title">${arr[i].title} at ${arr[i].company}</p>
-          </div>
-  `;
-    document.querySelector(".speakers").appendChild(par);
-  }
 }
 
 //------------------------DISPLAY RELEVANCE DATA----------------------------//
@@ -142,7 +107,6 @@ function displaySpeakers(data) {
     })
     .then((infos) => {
       const speakers = infos;
-      // const speakersRelId = [2, 1, 3, 7, 9];
       const speakersRelId = data.speakers_id;
 
       //CREATE A NEW ARRAY CONTAINING ONLY RELEVANCE 360 SPEAKERS DATA
@@ -173,7 +137,6 @@ const email = document.querySelector("#mail");
 const form = document.querySelector("form");
 const name = document.querySelector("#name");
 const firstName = document.querySelector("#firstname");
-const error = document.querySelector("span");
 const button = document.querySelector("button");
 const inputs = document.getElementsByTagName("input");
 
@@ -259,33 +222,9 @@ function submitForm() {
     });
   }
 }
-
+//-----VALIDATE FORM EVERYTIME A USER TYPE SOMETHING OR TRIES TO SUBMIT THE FORM ------//
 validateOnEntry();
 validateOnSubmit();
-
-//------------------------SANITIZE RESPONSE REMOVE HTML TAGS FROM SPEAKERS INFOS----------------------//
-
-function sanitize(string) {
-  if (string.includes("<script>" && "</script>")) {
-    const idx = string.indexOf("<script>");
-
-    const idxTwo = string.lastIndexOf(">");
-
-    const newString = `${string.slice(0, idx)} ${string.slice(idxTwo + 1)}`;
-
-    return newString;
-  } else if (string.includes("<") && string.includes(">")) {
-    const idx = string.indexOf("<");
-    const idx2 = string.lastIndexOf("<");
-    const idxTwo = string.indexOf(">");
-    const newString = `${string.slice(0, idx)} ${string.slice(
-      idxTwo + 1,
-      idx2
-    )}`;
-    return newString;
-  }
-  return string;
-}
 
 //-----------------------------------RENDER ALL INFOS ON THE PAGE---------------------------------------------//
 
