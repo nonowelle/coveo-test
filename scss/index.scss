@@ -230,7 +230,7 @@ button {
 .third-section {
   display: block;
   width: 85%;
-  margin: 0 auto;
+  margin: 0 0 0 10rem;
 }
 .speakers {
   display: flex;
@@ -384,7 +384,7 @@ button {
   .relevance {
     width: 85%;
     .first-section {
-      margin: 0 4rem 0 6.7rem;
+      margin: 3rem 4rem 0 6.7rem;
     }
     .infos {
       margin: 0 6.7rem;
@@ -395,11 +395,16 @@ button {
   }
 
   .third-section {
+    margin: 0 0 0 6.7rem;
     .speakers {
       .speaker-wrap {
         margin: 2.25rem 4rem;
       }
     }
+  }
+
+  .fourth-section {
+    margin: 3rem 6.7rem;
   }
 
   .card {
@@ -416,17 +421,17 @@ button {
   }
 
   .relevance {
-    margin: 0 auto;
+    margin: 0 6.7rem;
     height: 100%;
 
     .first-section {
       width: 90%;
-      margin: 3rem auto;
+      margin: 3rem 0;
       justify-content: center;
       align-items: center;
     }
     .infos {
-      margin: 0 auto;
+      margin: 0;
       width: 90%;
     }
     .par {
@@ -444,6 +449,7 @@ button {
   }
 
   .third-section {
+    margin: 3rem 6.7rem;
     .speakers {
       .speaker-wrap {
         margin: 2.25rem 2rem;
