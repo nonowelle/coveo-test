@@ -109,7 +109,7 @@ function displayEvents(data) {
       0,
       Math.min(trimmedDesc.length, trimmedDesc.lastIndexOf(" "))
     );
-    shortDesc = `${trimmedDesc}...`;
+    const shortDesc = `${trimmedDesc}...`;
 
     //GENERATE A CARD FOR EACH EVENT
     let card = document.createElement("div");
@@ -271,14 +271,17 @@ function sanitize(string) {
 
     const idxTwo = string.lastIndexOf(">");
 
-    newString = `${string.slice(0, idx)} ${string.slice(idxTwo + 1)}`;
+    const newString = `${string.slice(0, idx)} ${string.slice(idxTwo + 1)}`;
 
     return newString;
   } else if (string.includes("<") && string.includes(">")) {
     const idx = string.indexOf("<");
     const idx2 = string.lastIndexOf("<");
     const idxTwo = string.indexOf(">");
-    newString = `${string.slice(0, idx)} ${string.slice(idxTwo + 1, idx2)}`;
+    const newString = `${string.slice(0, idx)} ${string.slice(
+      idxTwo + 1,
+      idx2
+    )}`;
     return newString;
   }
   return string;
