@@ -35,7 +35,6 @@ app.get("/speakers", async (req, res) => {
   await axios(config)
     .then(async function (response) {
       const data = await response.data;
-      console.log(data);
       res.json(data);
     })
     .catch(function (error) {
