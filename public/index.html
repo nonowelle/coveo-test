@@ -92,6 +92,11 @@
   <script>
     dayjs.extend(window.dayjs_plugin_utc);
   </script>
-  <script src="bundle.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script
+    src="bundle.js"
+    type="text/babel"
+    data-presets="es2015, es2016, es2017, stage-3"
+  ></script>
   <!-- <script src="../src/index.js"></script> -->
 </html>
