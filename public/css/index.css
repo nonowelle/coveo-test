@@ -590,7 +590,19 @@ button {
     font-size: 2.3rem;
   }
   main {
-    background: none;
+    background: 200px 400px url("/images/Ellipse1.svg") no-repeat;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  main {
+    background: 200px 500px url("/images/Ellipse1.svg") no-repeat;
+  }
+}
+
+@media screen and (width: 411px) {
+  main {
+    background: 200px 450px url("/images/Ellipse1.svg") no-repeat;
   }
 }
 /*# sourceMappingURL=index.css.map */
