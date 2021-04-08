@@ -2,7 +2,6 @@ const dayjs = require("dayjs");
 const advancedFormat = require("dayjs");
 dayjs.extend(advancedFormat);
 const validator = require("validator");
-const formatDate = require("./utils/formatDate");
 const createSpeakers = require("./utils/createSpeakers");
 const loopL = require("./utils/animation");
 
@@ -57,6 +56,14 @@ function displayRelevance(data) {
   const speakersRelId = data.speakers_id;
 
   // createSpeakers(speakersInfo);
+}
+
+//------FORMAT DATE ------------------------------------------------//
+function formatDate(dateToFormat) {
+  const date = document.querySelector(".date");
+  const dateFormated = dateToFormat.slice(0, 10);
+  const finalDate = dayjs(dateFormated).format("dddd, MMMM D YYYY");
+  date.innerHTML = `<i class="far fa-calendar-alt"></i>${finalDate}`;
 }
 
 //------------------------DISPLAY OTHER EVENTS----------------------------//

@@ -6274,108 +6274,12 @@ function whitelist(str, chars) {
 module.exports = exports.default;
 module.exports.default = exports.default;
 },{"./util/assertString":95}],101:[function(require,module,exports){
-let scroll =
-  window.requestAnimationFrame ||
-  function (callback) {
-    window.setTimeout(callback, 1000 / 60);
-  };
-
-let elementsToShow = document.querySelectorAll(".is-invisible");
-
-console.log(elementsToShow);
-
-function loopL() {
-  elementsToShow.forEach(function (element) {
-    if (isElementInViewport(element)) {
-      element.classList.add("visible");
-    } else {
-      element.classList.remove("visible");
-    }
-  });
-  scroll(loopL);
-}
-
-function isElementInViewport(el) {
-  const rect = el.getBoundingClientRect();
-  return (
-    (rect.top <= 0 && rect.bottom >= 0) ||
-    (rect.bottom >=
-      (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.top <=
-        (window.innerHeight || document.documentElement.clientHeight)) ||
-    (rect.top >= 0 &&
-      rect.bottom <=
-        (window.innerHeight || document.documentElement.clientHeight))
-  );
-}
-
-module.exports = loopL;
-
-},{}],102:[function(require,module,exports){
-function createSpeakers(arr) {
-  //Create a speaker div for each speaker of Relevance 360
-  for (let i = 0; i < arr.length; i++) {
-    let par = document.createElement("div");
-    let firstName = arr[i].first_name;
-    let saneFirstName = sanitize(firstName);
-
-    let lastName = arr[i].last_name;
-    let saneLastName = sanitize(lastName);
-
-    par.classList.add("speaker-wrap");
-    par.innerHTML = `<div class="informations">
-              <img src="${arr[i].avatar}" alt="" class="avatar" />
-              <p class="name">${saneFirstName} ${saneLastName}</p>
-              <p class="title">${arr[i].title} at ${arr[i].company}</p>
-            </div>
-    `;
-    document.querySelector(".speakers").appendChild(par);
-  }
-}
-//------------------------SANITIZE RESPONSE REMOVE HTML TAGS FROM SPEAKERS INFOS----------------------//
-
-function sanitize(string) {
-  if (string.includes("<script>" && "</script>")) {
-    const idx = string.indexOf("<script>");
-
-    const idxTwo = string.lastIndexOf(">");
-
-    const newString = `${string.slice(0, idx)} ${string.slice(idxTwo + 1)}`;
-
-    return newString;
-  } else if (string.includes("<") && string.includes(">")) {
-    const idx = string.indexOf("<");
-    const idx2 = string.lastIndexOf("<");
-    const idxTwo = string.indexOf(">");
-    const newString = `${string.slice(0, idx)} ${string.slice(
-      idxTwo + 1,
-      idx2
-    )}`;
-    return newString;
-  }
-  return string;
-}
-
-module.exports = createSpeakers;
-
-},{}],103:[function(require,module,exports){
-function FormatDate(dateToFormat) {
-  const date = document.querySelector(".date");
-  const dateFormated = dateToFormat.slice(0, 10);
-  const finalDate = dayjs(dateFormated).format("dddd, MMMM D YYYY");
-  date.innerHTML = `<i class="far fa-calendar-alt"></i>${finalDate}`;
-}
-
-module.exports = FormatDate;
-
-},{}],104:[function(require,module,exports){
 const dayjs = require("dayjs");
 const advancedFormat = require("dayjs");
 dayjs.extend(advancedFormat);
 const validator = require("validator");
-const formatDate = require("./formatDate");
-const createSpeakers = require("./createSpeakers");
-const loopL = require("./animation");
+const createSpeakers = require("./utils/createSpeakers");
+const loopL = require("./utils/animation");
 
 //--------------------MAIN FUNCTION DISPLAY REL 360 -----------------//
 function display() {
@@ -6428,6 +6332,14 @@ function displayRelevance(data) {
   const speakersRelId = data.speakers_id;
 
   // createSpeakers(speakersInfo);
+}
+
+//------FORMAT DATE ------------------------------------------------//
+function formatDate(dateToFormat) {
+  const date = document.querySelector(".date");
+  const dateFormated = dateToFormat.slice(0, 10);
+  const finalDate = dayjs(dateFormated).format("dddd, MMMM D YYYY");
+  date.innerHTML = `<i class="far fa-calendar-alt"></i>${finalDate}`;
 }
 
 //------------------------DISPLAY OTHER EVENTS----------------------------//
@@ -6603,4 +6515,89 @@ validateOnSubmit();
 display();
 loopL();
 
-},{"./animation":101,"./createSpeakers":102,"./formatDate":103,"dayjs":1,"validator":2}]},{},[104]);
+},{"./utils/animation":102,"./utils/createSpeakers":103,"dayjs":1,"validator":2}],102:[function(require,module,exports){
+let scroll =
+  window.requestAnimationFrame ||
+  function (callback) {
+    window.setTimeout(callback, 1000 / 60);
+  };
+
+let elementsToShow = document.querySelectorAll(".is-invisible");
+
+console.log(elementsToShow);
+
+function loopL() {
+  elementsToShow.forEach(function (element) {
+    if (isElementInViewport(element)) {
+      element.classList.add("visible");
+    } else {
+      element.classList.remove("visible");
+    }
+  });
+  scroll(loopL);
+}
+
+function isElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    (rect.top <= 0 && rect.bottom >= 0) ||
+    (rect.bottom >=
+      (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.top <=
+        (window.innerHeight || document.documentElement.clientHeight)) ||
+    (rect.top >= 0 &&
+      rect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight))
+  );
+}
+
+module.exports = loopL;
+
+},{}],103:[function(require,module,exports){
+function createSpeakers(arr) {
+  //Create a speaker div for each speaker of Relevance 360
+  for (let i = 0; i < arr.length; i++) {
+    let par = document.createElement("div");
+    let firstName = arr[i].first_name;
+    let saneFirstName = sanitize(firstName);
+
+    let lastName = arr[i].last_name;
+    let saneLastName = sanitize(lastName);
+
+    par.classList.add("speaker-wrap");
+    par.innerHTML = `<div class="informations">
+              <img src="${arr[i].avatar}" alt="" class="avatar" />
+              <p class="name">${saneFirstName} ${saneLastName}</p>
+              <p class="title">${arr[i].title} at ${arr[i].company}</p>
+            </div>
+    `;
+    document.querySelector(".speakers").appendChild(par);
+  }
+}
+//------------------------SANITIZE RESPONSE REMOVE HTML TAGS FROM SPEAKERS INFOS----------------------//
+
+function sanitize(string) {
+  if (string.includes("<script>" && "</script>")) {
+    const idx = string.indexOf("<script>");
+
+    const idxTwo = string.lastIndexOf(">");
+
+    const newString = `${string.slice(0, idx)} ${string.slice(idxTwo + 1)}`;
+
+    return newString;
+  } else if (string.includes("<") && string.includes(">")) {
+    const idx = string.indexOf("<");
+    const idx2 = string.lastIndexOf("<");
+    const idxTwo = string.indexOf(">");
+    const newString = `${string.slice(0, idx)} ${string.slice(
+      idxTwo + 1,
+      idx2
+    )}`;
+    return newString;
+  }
+  return string;
+}
+
+module.exports = createSpeakers;
+
+},{}]},{},[101]);
