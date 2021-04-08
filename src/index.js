@@ -35,7 +35,7 @@ app.get("/speakers", async (req, res) => {
   await axios(config)
     .then(async function (response) {
       const data = await response.data;
-      res.json(data);
+      res.send(data);
     })
     .catch(function (error) {
       console.log(error);
@@ -54,7 +54,7 @@ app.get("/events", async (req, res) => {
   await axios(config)
     .then(async function (response) {
       const data = await response.data;
-      res.json(data);
+      res.send(data);
     })
     .catch(function (error) {
       console.log(error);
