@@ -2,9 +2,9 @@ const dayjs = require("dayjs");
 const advancedFormat = require("dayjs");
 dayjs.extend(advancedFormat);
 const validator = require("validator");
-const formatDate = require("./formatDate");
-const createSpeakers = require("./createSpeakers");
-const loopL = require("./animation");
+const formatDate = require("./utils/formatDate");
+const createSpeakers = require("./utils/createSpeakers");
+const loopL = require("./utils/animation");
 
 //--------------------MAIN FUNCTION DISPLAY REL 360 -----------------//
 function display() {
