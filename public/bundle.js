@@ -6274,6 +6274,44 @@ function whitelist(str, chars) {
 module.exports = exports.default;
 module.exports.default = exports.default;
 },{"./util/assertString":95}],101:[function(require,module,exports){
+let scroll =
+  window.requestAnimationFrame ||
+  function (callback) {
+    window.setTimeout(callback, 1000 / 60);
+  };
+
+let elementsToShow = document.querySelectorAll(".is-invisible");
+
+console.log(elementsToShow);
+
+function loopL() {
+  elementsToShow.forEach(function (element) {
+    if (isElementInViewport(element)) {
+      element.classList.add("visible");
+    } else {
+      element.classList.remove("visible");
+    }
+  });
+  scroll(loopL);
+}
+
+function isElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    (rect.top <= 0 && rect.bottom >= 0) ||
+    (rect.bottom >=
+      (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.top <=
+        (window.innerHeight || document.documentElement.clientHeight)) ||
+    (rect.top >= 0 &&
+      rect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight))
+  );
+}
+
+module.exports = loopL;
+
+},{}],102:[function(require,module,exports){
 function createSpeakers(arr) {
   //Create a speaker div for each speaker of Relevance 360
   for (let i = 0; i < arr.length; i++) {
@@ -6320,7 +6358,7 @@ function sanitize(string) {
 
 module.exports = createSpeakers;
 
-},{}],102:[function(require,module,exports){
+},{}],103:[function(require,module,exports){
 function FormatDate(dateToFormat) {
   const date = document.querySelector(".date");
   const dateFormated = dateToFormat.slice(0, 10);
@@ -6330,13 +6368,14 @@ function FormatDate(dateToFormat) {
 
 module.exports = FormatDate;
 
-},{}],103:[function(require,module,exports){
+},{}],104:[function(require,module,exports){
 const dayjs = require("dayjs");
 const advancedFormat = require("dayjs");
 dayjs.extend(advancedFormat);
 const validator = require("validator");
 const formatDate = require("./formatDate");
 const createSpeakers = require("./createSpeakers");
+const loopL = require("./animation");
 
 //--------------------MAIN FUNCTION DISPLAY REL 360 -----------------//
 function display() {
@@ -6555,12 +6594,13 @@ function submitForm() {
     });
   }
 }
-
+//-----VALIDATE FORM EVERYTIME A USER TYPE SOMETHING OR TRIES TO SUBMIT THE FORM ------//
 validateOnEntry();
 validateOnSubmit();
 
 //-----------------------------------RENDER ALL INFOS ON THE PAGE---------------------------------------------//
 
 display();
+loopL();
 
-},{"./createSpeakers":101,"./formatDate":102,"dayjs":1,"validator":2}]},{},[103]);
+},{"./animation":101,"./createSpeakers":102,"./formatDate":103,"dayjs":1,"validator":2}]},{},[104]);

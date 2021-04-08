@@ -4,6 +4,7 @@ dayjs.extend(advancedFormat);
 const validator = require("validator");
 const formatDate = require("./formatDate");
 const createSpeakers = require("./createSpeakers");
+const loopL = require("./animation");
 
 //--------------------MAIN FUNCTION DISPLAY REL 360 -----------------//
 function display() {
@@ -229,3 +230,4 @@ validateOnSubmit();
 //-----------------------------------RENDER ALL INFOS ON THE PAGE---------------------------------------------//
 
 display();
+loopL();

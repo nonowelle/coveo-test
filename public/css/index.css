@@ -86,6 +86,16 @@ button {
   line-height: 2rem;
 }
 
+.is-invisible {
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+.visible {
+  opacity: 1;
+}
+
 .relevance {
   display: -webkit-box;
   display: -ms-flexbox;
